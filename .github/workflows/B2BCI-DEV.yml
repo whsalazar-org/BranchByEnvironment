@@ -127,7 +127,7 @@ jobs:
                 # The file is not zero bytes
                 echo "test did not pass, go to manual validation"
                 echo "if admin approves, then merge, otherwise return to dev1"
-                echo "There are differences on Github components, check ${{steps.copyfiles.outputs.basefile}}.diffs" | mail -s "this is the subject" "mario.urbina@kellanova.com"
+                #echo "There are differences on Github components, check ${{steps.copyfiles.outputs.basefile}}.diffs" | mail -s "this is the subject" "mario.urbina@kellanova.com"
                 echo "testFlag=false" >> $GITHUB_OUTPUT
               fi
 
