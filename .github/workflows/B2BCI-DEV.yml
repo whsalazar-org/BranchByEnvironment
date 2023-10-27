@@ -136,7 +136,7 @@ jobs:
     needs: MapTest
     environment: 
       name: DEV
-    runs-on: ubuntu-lasest
+    runs-on: ubuntu-latest
     if: ${{ needs.MapTest.outputs.testFlag }} == false
     steps:
       - name: Manual Validation
