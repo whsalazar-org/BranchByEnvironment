@@ -1,19 +1,18 @@
-name: BCI QA
+name: BCI DEV
  
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "qa" branch
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "qa" ]
-    
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "qa" ]
+    branches: [ "dev" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 permissions: read-all
    
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel1
 jobs:
 
   MapTest:   
@@ -137,7 +136,7 @@ jobs:
     needs: MapTest
     environment: 
       name: DEV
-    runs-on: ubuntu-lasest
+    runs-on: ubuntu-latest
     if: ${{ needs.MapTest.outputs.testFlag }} == false
     steps:
       - name: Manual Validation
@@ -146,3 +145,4 @@ jobs:
           echo "REF: ${{github.ref}}"
           echo "HEAD REF: ${{github.head_ref}}"
           echo "base REF: ${{github.base_ref}}"
+
